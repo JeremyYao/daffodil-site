@@ -78,9 +78,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libmxml-dev
 
-      - name: Install Pandoc
+      - name: Install Pandoc 3.8.3
         run: |
-          PANDOC_VERSION=3.1.11
+          PANDOC_VERSION=3.8.3
           curl -L \
             https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz \
             | tar xz
