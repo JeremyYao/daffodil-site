@@ -75,7 +75,17 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          sudo apt-get install -y libmxml-dev pandoc
+          sudo apt-get update
+          sudo apt-get install -y libmxml-dev
+
+      - name: Install Pandoc
+        run: |
+          PANDOC_VERSION=3.1.11
+          curl -L \
+            https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz \
+            | tar xz
+          sudo mv pandoc-${PANDOC_VERSION}/bin/pandoc /usr/local/bin/pandoc
+          pandoc --version
 
       - name: Setup Java
         uses: actions/setup-java@7a6d8a8234af8eb26422e24e3006232cccaa061b # v4.6.0
